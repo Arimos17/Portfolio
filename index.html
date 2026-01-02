@@ -272,10 +272,10 @@
         <div class="card proj-card">
           <div class="proj-title">
             <b>{{ pr.name }}</b>
-            <a class="pill" href="{{ pr.repo_url }}" target="_blank" rel="noopener">Ver repo</a>
+            <!--<a class="pill" href="{{ pr.repo_url }}" target="_blank" rel="noopener">Ver repo</a>
             {% if pr.links and pr.links.demo and pr.links.demo != "" %}
               <a class="pill" href="{{ pr.links.demo }}" target="_blank" rel="noopener">Demo</a>
-            {% endif %}
+            {% endif %}-->
           </div>
 
           <div class="stack">{{ pr.type }} · {{ pr.stack | join: " · " }}</div>
