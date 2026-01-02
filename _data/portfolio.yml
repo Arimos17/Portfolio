@@ -16,25 +16,25 @@ branding:
     mode: "dark"
     accent_style: "classic"
     colors:
-      background_from: "#0C0812"
-      background_to:   "#140B1F"
-      surface:         "#120A1B"
-      surface_2:       "#1A0F28"
-      text:            "#F4F1F7"
-      muted:           "#B9AEC8"
-      border:          "#2B1F3A"
+      background_from: "#0F1115"
+      background_to:   "#171B22"
+      surface:         "#141820"
+      surface_2:       "#1A2029"
+      text:            "#F5F5F5"
+      muted:           "#B1B8C2"
+      border:          "#2D3743"
 
-      primary:   "#FB7185"  # rose
-      secondary: "#A78BFA"  # lavender
-      success:   "#4ADE80"
-      warning:   "#FBBF24"
-      danger:    "#F43F5E"
+      primary:   "#D4AF37"  # gold
+      secondary: "#F97316"  # naranja elegante (no chillón)
+      success:   "#34D399"
+      warning:   "#F59E0B"
+      danger:    "#FB7185"
 
     effects:
       glassmorphism: true
       blur_px: 10
       card_gradient: "linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))"
-      hero_gradient: "linear-gradient(135deg, #0C0812 0%, #140B1F 60%, #FB7185 140%)"
+      hero_gradient: "linear-gradient(135deg, #0F1115 0%, #171B22 60%, #D4AF37 140%)"
 
     typography:
       font_family: "Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
@@ -116,4 +116,4 @@ seo:
 
 footer:
   show_last_updated: true
-  small_print: "Hecho con ❤️ y GitHub Pages."
+  small_print: ""
