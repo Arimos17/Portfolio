@@ -8,8 +8,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
   <title>{{ p.seo.title | default: p.branding.name }}</title>
   <meta name="description" content="{{ p.seo.description | escape }}" />
+
+  {% if p.branding.assets.favicon %}
+    <link rel="icon" href="{{ p.branding.assets.favicon | relative_url }}">
+  {% endif %}
 
   <style>
     :root{
@@ -31,105 +36,233 @@
       margin:0;
       font-family: {{ p.branding.theme.typography.font_family }};
       color: var(--text);
-      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      background: radial-gradient(1200px 600px at 20% 10%, rgba(0,212,255,0.18), transparent 60%),
+                  radial-gradient(900px 500px at 80% 15%, rgba(11,95,255,0.22), transparent 62%),
+                  linear-gradient(135deg, var(--bg1), var(--bg2));
       min-height:100vh;
     }
     a{color:inherit;text-decoration:none}
     .wrap{max-width:var(--maxw); margin:0 auto; padding:24px;}
+    .muted{color:var(--muted)}
+    .divider{height:1px;background:rgba(255,255,255,0.08);margin:16px 0}
+
     .nav{
-      position: sticky; top:0; z-index:10;
-      background: rgba(10,16,28,0.55);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      margin: 16px auto;
+      position: sticky; top: 12px; z-index: 20;
+      margin: 12px auto;
     }
-    .nav .wrap{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 18px;}
-    .brand{display:flex; flex-direction:column; line-height:1.1}
-    .brand b{font-size:14px}
-    .brand span{font-size:12px; color:var(--muted)}
-    .links{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:14px 18px;
+      border-radius: 16px;
+      background: rgba(10,16,28,0.55);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .brand{display:flex; gap:12px; align-items:center}
+    .avatar{
+      width:40px; height:40px; border-radius: 12px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+    }
+    .brand h1{margin:0;font-size:14px;line-height:1.1}
+    .brand p{margin:2px 0 0;font-size:12px;color:var(--muted)}
+    .links{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
     .pill{
       padding:10px 12px; border-radius:999px;
       border:1px solid rgba(255,255,255,0.10);
       background: rgba(255,255,255,0.06);
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+      font-size: 13px;
     }
-    .pill:hover{border-color: rgba(0,212,255,0.45)}
+    .pill:hover{
+      transform: translateY(-1px);
+      border-color: rgba(0,212,255,0.45);
+      background: rgba(0,212,255,0.08);
+    }
+
     .hero{
-      padding:34px 0 14px;
+      padding: 10px 0 8px;
       display:grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap:18px;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:16px;
       align-items:stretch;
     }
     .card{
       border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,0.10);
       background: rgba(255,255,255,0.06);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
     }
-    .card.pad{padding:18px}
-    h1{margin:0 0 6px; font-size:34px}
-    .subtitle{color:var(--muted); margin:0 0 14px; font-size:14px}
-    .tagline{
-      display:inline-flex; gap:8px; flex-wrap:wrap;
-      margin-top:10px;
+    .pad{padding:18px}
+    .hero-title{margin:0 0 6px; font-size:34px; letter-spacing: .2px}
+    .subtitle{margin:0 0 12px; font-size:14px; color:var(--muted)}
+    .cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      transition: transform .15s ease, border-color .15s ease;
+      font-size: 13px;
+      cursor:pointer;
     }
+    .btn.primary{
+      border-color: rgba(11,95,255,0.55);
+      background: rgba(11,95,255,0.12);
+    }
+    .btn.secondary{
+      border-color: rgba(0,212,255,0.55);
+      background: rgba(0,212,255,0.10);
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(0,212,255,0.45)}
+
+    .badges{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
     .badge{
       font-size:12px;
-      padding:8px 10px;
+      padding:7px 10px;
       border-radius: 999px;
       border:1px solid rgba(255,255,255,0.12);
       background: rgba(0,0,0,0.18);
     }
     .badge.primary{border-color: rgba(11,95,255,0.55)}
     .badge.secondary{border-color: rgba(0,212,255,0.55)}
+
     .grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:16px;
       margin-top:16px;
     }
-    .section-title{
-      display:flex; align-items:center; justify-content:space-between;
-      margin: 0 0 10px;
-    }
-    .section-title h2{margin:0; font-size:16px}
-    .muted{color:var(--muted)}
+    h2{margin:0; font-size:16px}
+    .section-title{display:flex; align-items:center; justify-content:space-between; margin:0 0 10px}
+
     ul{margin:10px 0 0; padding-left:18px}
     li{margin:6px 0}
-    .proj{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:10px;
+
+    .proj-list{display:grid; grid-template-columns: 1fr; gap:12px}
+    .proj-head{display:flex; gap:14px; align-items:flex-start}
+    .proj-cover{
+      width: 112px; height: 72px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      object-fit: cover;
+      background: rgba(255,255,255,0.06);
+      flex: 0 0 auto;
     }
-    .proj .item{padding:14px}
-    .proj .item b{display:block; margin-bottom:3px}
-    .stack{color:var(--muted); font-size:12px}
+    .proj-meta b{display:block; font-size:15px}
+    .proj-meta .stack{font-size:12px; color:var(--muted); margin-top:2px}
+    .proj-meta .desc{margin-top:8px; color: rgba(230,237,243,0.92); font-size:13px}
+
     .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
     .chip{
       font-size:12px; padding:6px 10px; border-radius:999px;
       border:1px solid rgba(255,255,255,0.10);
       background: rgba(255,255,255,0.05);
     }
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:10px;
+      margin-top:12px;
+    }
+    .shot{
+      width:100%;
+      height: 120px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      object-fit: cover;
+      background: rgba(255,255,255,0.06);
+      cursor: pointer;
+      transition: transform .15s ease, border-color .15s ease;
+    }
+    .shot:hover{
+      transform: translateY(-1px);
+      border-color: rgba(0,212,255,0.45);
+    }
+
+    /* Lightbox */
+    .lb{
+      position: fixed;
+      inset: 0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background: rgba(0,0,0,0.70);
+      z-index: 60;
+      padding: 18px;
+    }
+    .lb.open{display:flex}
+    .lb-inner{
+      width: min(1100px, 100%);
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(10,16,28,0.75);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+      overflow:hidden;
+    }
+    .lb-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+    .lb-title{font-size:13px;color:var(--muted)}
+    .lb-actions{display:flex; gap:10px; align-items:center}
+    .iconbtn{
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      padding: 8px 10px;
+      cursor:pointer;
+      color: var(--text);
+      font-size: 13px;
+    }
+    .iconbtn:hover{border-color: rgba(0,212,255,0.45)}
+    .lb-img{
+      width:100%;
+      height: min(78vh, 720px);
+      object-fit: contain;
+      background: rgba(0,0,0,0.25);
+      display:block;
+    }
+
     footer{padding:26px 0; color:var(--muted); font-size:12px}
+
     @media (max-width: 920px){
       .hero{grid-template-columns: 1fr}
       .grid{grid-template-columns: 1fr}
+      .gallery{grid-template-columns: repeat(2, 1fr)}
+      .shot{height: 140px}
+      .proj-cover{width: 100px; height: 66px}
+      .hero-title{font-size:30px}
     }
   </style>
 </head>
 
 <body>
-  <div class="nav card">
-    <div class="wrap">
+  <div class="wrap nav">
+    <div class="nav-inner">
       <div class="brand">
-        <b>{{ p.branding.name }}</b>
-        <span>{{ p.branding.headline }}</span>
+        {% if p.branding.assets.avatar %}
+          <img class="avatar" src="{{ p.branding.assets.avatar | relative_url }}" alt="Avatar">
+        {% endif %}
+        <div>
+          <h1>{{ p.branding.name }}</h1>
+          <p>{{ p.branding.headline }} · <span class="muted">{{ p.branding.location }}</span></p>
+        </div>
       </div>
+
       <div class="links">
-        <a class="pill" href="{{ p.contact.github_url }}" target="_blank">GitHub</a>
-        <a class="pill" href="{{ p.contact.website }}" target="_blank">Web</a>
+        <a class="pill" href="{{ p.contact.github_url }}" target="_blank" rel="noopener">GitHub</a>
+        <a class="pill" href="{{ p.contact.website }}" target="_blank" rel="noopener">Web</a>
         {% if p.visibility.show_email %}
           <a class="pill" href="mailto:{{ p.contact.email }}">Email</a>
         {% endif %}
@@ -139,16 +272,23 @@
 
   <div class="wrap hero">
     <div class="card pad">
-      <h1>{{ p.branding.tagline }}</h1>
-      <p class="subtitle">{{ p.branding.location }}</p>
-      <p>{{ p.about.summary }}</p>
+      <h2 class="hero-title">{{ p.branding.tagline }}</h2>
+      <p class="subtitle">{{ p.about.summary }}</p>
 
-      <div class="tagline">
+      <div class="badges">
         {% for s in p.skills.tech_stack.languages %}
           <span class="badge primary">{{ s }}</span>
         {% endfor %}
         {% for f in p.skills.tech_stack.frameworks %}
           <span class="badge secondary">{{ f }}</span>
+        {% endfor %}
+      </div>
+
+      <div class="cta-row">
+        {% for c in p.about.ctas %}
+          <a class="btn {% if forloop.first %}primary{% else %}secondary{% endif %}" href="{{ c.url | relative_url }}" target="_blank" rel="noopener">
+            {{ c.label }}
+          </a>
         {% endfor %}
       </div>
     </div>
@@ -158,6 +298,7 @@
         <h2>Contacto</h2>
         <span class="muted">{{ p.contact.timezone }}</span>
       </div>
+
       <ul>
         {% if p.visibility.show_email %}<li><b>Email:</b> {{ p.contact.email }}</li>{% endif %}
         {% if p.visibility.show_phone %}<li><b>Tel:</b> {{ p.contact.phone }}</li>{% endif %}
@@ -165,56 +306,11 @@
         <li><b>Ubicación:</b> {{ p.branding.location }}</li>
       </ul>
 
-      <div class="chips">
-        {% for h in p.skills.highlight limit:6 %}
-          <span class="chip">{{ h }}</span>
-        {% endfor %}
+      <div class="divider"></div>
+
+      <div class="section-title">
+        <h2>{{ p.skills.title }}</h2>
+        <span class="muted">Stack</span>
       </div>
-    </div>
-  </div>
 
-  <div class="wrap grid">
-    <div class="card pad">
-      <div class="section-title"><h2>Proyectos destacados</h2><span class="muted">GitHub</span></div>
-      <div class="proj">
-        {% for pr in p.projects.featured limit:p.projects.featured_limit %}
-          <a class="card item" href="{{ pr.repo_url }}" target="_blank">
-            <b>{{ pr.name }}</b>
-            <div class="stack">{{ pr.type }} · {{ pr.stack | join: " · " }}</div>
-            <div class="muted" style="margin-top:6px">{{ pr.short }}</div>
-            <div class="chips">
-              {% for b in pr.badges limit:6 %}
-                <span class="chip">{{ b }}</span>
-              {% endfor %}
-            </div>
-          </a>
-        {% endfor %}
-      </div>
-    </div>
-
-    <div class="card pad">
-      <div class="section-title"><h2>Experiencia</h2><span class="muted">{{ p.branding.headline }}</span></div>
-      {% for e in p.experience.items %}
-        <div class="card item" style="margin-bottom:10px">
-          <b>{{ e.company }}</b>
-          <div class="stack">{{ e.role }} · {{ e.location }} · {{ e.start }} → {{ e.end }}</div>
-          <ul>
-            {% for b in e.bullets %}
-              <li>{{ b }}</li>
-            {% endfor %}
-          </ul>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-
-  <div class="wrap">
-    <footer>
-      {% if p.footer.show_last_updated %}
-        Última actualización: {{ "now" | date: "%Y-%m-%d" }} ·
-      {% endif %}
-      {{ p.footer.small_print }}
-    </footer>
-  </div>
-</body>
-</html>
+      <div class="chip
