@@ -1,10 +1,4 @@
 # portfolio.yml
-# Data-driven portfolio config (GitHub-first) for:
-# Christian David Ramos Gonzalez
-# Generated: 2026-01-02
-#
-# Tip: If you're using Jekyll/GitHub Pages, place this as: _data/portfolio.yml
-# Tip: If you're using a React/Next site, place this as: src/data/portfolio.yml
 
 meta:
   schema_version: "1.0"
@@ -63,7 +57,7 @@ branding:
       animations: true
 
 visibility:
-  # Recomendación: deja el teléfono oculto si el repo es público.
+  
   show_email: true
   show_phone: false
   show_birthdate: false
@@ -180,8 +174,6 @@ licenses:
     - name: "Clase B"
 
 # --- Proyectos (GitHub) -------------------------------------------------------
-# Si quieres: puedes dejar que el sitio "importe" repos automáticamente desde GitHub,
-# y además fijar 3–6 proyectos destacados con descripciones más potentes.
 github_import:
   enabled: true
   username: "arimos17"
@@ -194,57 +186,25 @@ github_import:
   sort: "pushed_at_desc"   # "pushed_at_desc" | "stars_desc" | "name_asc"
 
 projects:
-  title: "Proyectos"
-  featured_limit: 6
   featured:
-    # ⚠️ Reemplaza los repo_url por tus URLs reales.
-    - name: "Dashboard de Datos / ETL"
-      type: "Data & BI"
-      repo_url: "https://github.com/arimos17/REPO_AQUI"
-      short: "Pipeline ETL + visualización para análisis y reporting."
-      stack: ["SQL", "Python", "SSIS", "Power BI"]
+    - name: "PriceShot"
+      type: "Web · Price Tracker"
+      repo_url: "https://github.com/arimos17/PriceShot"   # <- tu repo real
+      short: "Plataforma web para búsqueda y seguimiento de precios, con scraping, BD y dashboard."
+      stack: ["Django", "MySQL", "HTML/CSS", "JavaScript", "AWS (EC2)"]
       highlights:
-        - "ETL con validaciones y trazabilidad."
-        - "Modelo listo para consumo en reportes."
+        - "Scraping de precios desde fuentes públicas y normalización de datos."
+        - "Historial de precios + alertas para seguimiento."
+        - "Despliegue en AWS con entorno Linux."
       links:
-        demo: ""
+        demo: "https://arimos17.github.io/Portfolio/"     # o tu demo real (si tienes)
         docs: ""
-      badges: ["ETL", "BI", "SQL", "Python"]
-
-    - name: "Web App Full Stack"
-      type: "Web"
-      repo_url: "https://github.com/arimos17/REPO_AQUI"
-      short: "Aplicación web con backend robusto, autenticación y CRUD."
-      stack: ["Django", "React", "MySQL"]
-      highlights:
-        - "Arquitectura limpia y componentes reutilizables."
-        - "Buenas prácticas de seguridad y despliegue."
-      links:
-        demo: ""
-        docs: ""
-      badges: ["Full Stack", "Django", "React"]
-
-    - name: "Automatización (Scripts)"
-      type: "Automation"
-      repo_url: "https://github.com/arimos17/REPO_AQUI"
-      short: "Scripts para automatizar tareas operativas y soporte TI."
-      stack: ["Python"]
-      highlights:
-        - "Ahorro de tiempo en tareas repetitivas."
-        - "Logs y manejo de errores."
-      links:
-        demo: ""
-        docs: ""
-      badges: ["Automation", "Python"]
-
-  # Sección opcional para más proyectos (cards simples)
-  more:
-    - name: "Mini-proyecto 1"
-      repo_url: "https://github.com/arimos17/REPO_AQUI"
-      tags: ["SQL", "Python"]
-    - name: "Mini-proyecto 2"
-      repo_url: "https://github.com/arimos17/REPO_AQUI"
-      tags: ["React", "UI"]
+      badges: ["Django", "Scraping", "MySQL", "AWS", "Full Stack"]
+      media:
+        cover: "assets/img/projects/priceshot/cover.png"
+        screenshots:
+          - "assets/img/projects/priceshot/1.png"
+          - "assets/img/projects/priceshot/2.png"
 
 # --- SEO / Meta ---------------------------------------------------------------
 seo:
