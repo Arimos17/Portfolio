@@ -18,19 +18,20 @@ branding:
     mode: "dark"              # "dark" | "light" | "auto"
     accent_style: "neon"      # "neon" | "classic"
         colors:
-      background_from: "#0B1020"
-      background_to:   "#101A33"
-      surface:         "#0F172A"
-      surface_2:       "#111C36"
-      text:            "#E5E7EB"
-      muted:           "#9CA3AF"
-      border:          "#24324A"
+  background_from: "#0F0A13"
+  background_to:   "#1A1024"
+  surface:         "#140D1C"
+  surface_2:       "#1B1326"
+  text:            "#F4F1F7"
+  muted:           "#B9AEC8"
+  border:          "#2B1F3A"
 
-      primary:   "#2563EB"  # azul profesional
-      secondary: "#06B6D4"  # cian elegante
-      success:   "#16A34A"
-      warning:   "#F59E0B"
-      danger:    "#EF4444"
+  primary:   "#FB7185"  # rose
+  secondary: "#F472B6"  # pink suave
+  success:   "#4ADE80"
+  warning:   "#FBBF24"
+  danger:    "#F43F5E"
+
 
     effects:
       glassmorphism: true
