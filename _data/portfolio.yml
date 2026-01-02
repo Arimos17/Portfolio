@@ -10,17 +10,14 @@ branding:
   tagline: "Full Stack · Data/ETL · Soporte TI · Cloud (AWS)"
   location: "Talca, Región del Maule, Chile"
 
-  # Optional assets (adjust to your repo structure)
   assets:
     avatar: "assets/img/profile.jpg"
     favicon: "assets/img/favicon.png"
 
-  # Visual system (professional + llamativo, sin perder seriedad)
   theme:
     mode: "dark"              # "dark" | "light" | "auto"
-    accent_style: "neon"       # "neon" | "classic"
+    accent_style: "neon"      # "neon" | "classic"
     colors:
-      # Base
       background_from: "#050B18"
       background_to:   "#0B2A6F"
       surface:         "#0B1220"
@@ -29,10 +26,9 @@ branding:
       muted:           "#9AA4B2"
       border:          "#223043"
 
-      # Brand accents
-      primary:   "#0B5FFF"   # azul intenso
-      secondary: "#00D4FF"   # cian
-      success:   "#22C55E"   # verde para badges/estado
+      primary:   "#0B5FFF"
+      secondary: "#00D4FF"
+      success:   "#22C55E"
       warning:   "#F59E0B"
       danger:    "#EF4444"
 
@@ -51,13 +47,12 @@ branding:
     layout:
       max_width_px: 1160
       nav_style: "sticky"
-      section_spacing: "comfortable"  # "compact" | "comfortable"
+      section_spacing: "comfortable"
       card_radius_px: 18
       use_icons: true
       animations: true
 
 visibility:
-  
   show_email: true
   show_phone: false
   show_birthdate: false
@@ -69,9 +64,6 @@ contact:
   website: "https://arimos17.github.io/Portfolio/"
   github_username: "arimos17"
   github_url: "https://github.com/arimos17"
-  # linkedin_url: ""
-  # behance_url: ""
-  # x_url: ""
   timezone: "America/Santiago"
 
 about:
@@ -173,43 +165,51 @@ licenses:
   items:
     - name: "Clase B"
 
-# --- Proyectos (GitHub) -------------------------------------------------------
 github_import:
   enabled: true
   username: "arimos17"
   include_forks: false
   include_archived: false
   max_repos: 12
-  # Si tu portfolio filtra por topics, agrega aquí los tuyos:
   prefer_topics_any: ["django", "flask", "react", "aws", "etl", "ssis", "powerbi", "python"]
-  # Orden sugerido:
-  sort: "pushed_at_desc"   # "pushed_at_desc" | "stars_desc" | "name_asc"
+  sort: "pushed_at_desc"
 
 projects:
+  title: "Proyectos"
+  featured_limit: 6
   featured:
     - name: "PriceShot"
       type: "Web · Price Tracker"
-      repo_url: "https://github.com/arimos17/PriceShot"   # <- tu repo real
-      short: "Plataforma web para búsqueda y seguimiento de precios, con scraping, BD y dashboard."
+      repo_url: "https://github.com/arimos17/PriceShot"
+      short: "Plataforma web para búsqueda y seguimiento de precios, con scraping, base de datos y dashboard."
       stack: ["Django", "MySQL", "HTML/CSS", "JavaScript", "AWS (EC2)"]
       highlights:
         - "Scraping de precios desde fuentes públicas y normalización de datos."
         - "Historial de precios + alertas para seguimiento."
         - "Despliegue en AWS con entorno Linux."
       links:
-        demo: "https://arimos17.github.io/Portfolio/"     # o tu demo real (si tienes)
+        demo: "https://arimos17.github.io/Portfolio/"
         docs: ""
       badges: ["Django", "Scraping", "MySQL", "AWS", "Full Stack"]
       media:
-        cover: "assets/img/projects/priceshot/cover.png"
+        cover: "assets/img/projects/priceshot/1.png"
         screenshots:
           - "assets/img/projects/priceshot/1.png"
           - "assets/img/projects/priceshot/2.png"
+          - "assets/img/projects/priceshot/3.png"
+          - "assets/img/projects/priceshot/4.png"
+          - "assets/img/projects/priceshot/4.1.png"
+          - "assets/img/projects/priceshot/4.2.png"
+          - "assets/img/projects/priceshot/4.3.png"
+          - "assets/img/projects/priceshot/4.4.png"
+          - "assets/img/projects/priceshot/5.png"
+          - "assets/img/projects/priceshot/5.1.png"
+          - "assets/img/projects/priceshot/5.2.png"
+          - "assets/img/projects/priceshot/5.3.png"
 
-# --- SEO / Meta ---------------------------------------------------------------
 seo:
   title: "Portafolio — Christian Ramos"
-  description: "Portafolio profesional con proyectos en GitHub: Full Stack, Data/ETL, Soporte TI y Cloud AWS."
+  description: "Portafolio profesional con proyectos en GitHub: Full Stack, Data/ETL, Soporte TI y Cloud (AWS)."
   keywords: ["portafolio", "full stack", "python", "django", "react", "etl", "ssis", "power bi", "aws", "talca", "chile"]
   og_image: "assets/img/og-cover.png"
 
