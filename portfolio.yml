@@ -1,0 +1,258 @@
+# portfolio.yml
+# Data-driven portfolio config (GitHub-first) for:
+# Christian David Ramos Gonzalez
+# Generated: 2026-01-02
+#
+# Tip: If you're using Jekyll/GitHub Pages, place this as: _data/portfolio.yml
+# Tip: If you're using a React/Next site, place this as: src/data/portfolio.yml
+
+meta:
+  schema_version: "1.0"
+  language: "es-CL"
+
+branding:
+  name: "Christian David Ramos Gonzalez"
+  headline: "Ingeniero Informático · Técnico Analista Programador"
+  tagline: "Full Stack · Data/ETL · Soporte TI · Cloud (AWS)"
+  location: "Talca, Región del Maule, Chile"
+
+  # Optional assets (adjust to your repo structure)
+  assets:
+    avatar: "assets/img/profile.jpg"
+    favicon: "assets/img/favicon.png"
+
+  # Visual system (professional + llamativo, sin perder seriedad)
+  theme:
+    mode: "dark"              # "dark" | "light" | "auto"
+    accent_style: "neon"       # "neon" | "classic"
+    colors:
+      # Base
+      background_from: "#050B18"
+      background_to:   "#0B2A6F"
+      surface:         "#0B1220"
+      surface_2:       "#0F1A2B"
+      text:            "#E6EDF3"
+      muted:           "#9AA4B2"
+      border:          "#223043"
+
+      # Brand accents
+      primary:   "#0B5FFF"   # azul intenso
+      secondary: "#00D4FF"   # cian
+      success:   "#22C55E"   # verde para badges/estado
+      warning:   "#F59E0B"
+      danger:    "#EF4444"
+
+    effects:
+      glassmorphism: true
+      blur_px: 10
+      card_gradient: "linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03))"
+      hero_gradient: "linear-gradient(135deg, #050B18 0%, #0B2A6F 55%, #00D4FF 120%)"
+
+    typography:
+      font_family: "Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+      headings_weight: 700
+      body_weight: 400
+      letter_spacing: "0.2px"
+
+    layout:
+      max_width_px: 1160
+      nav_style: "sticky"
+      section_spacing: "comfortable"  # "compact" | "comfortable"
+      card_radius_px: 18
+      use_icons: true
+      animations: true
+
+visibility:
+  # Recomendación: deja el teléfono oculto si el repo es público.
+  show_email: true
+  show_phone: false
+  show_birthdate: false
+  show_full_address: false
+
+contact:
+  email: "chris.davidxd@gmail.com"
+  phone: "+56 9 3379 1781"
+  website: "https://arimos17.github.io/Portfolio/"
+  github_username: "arimos17"
+  github_url: "https://github.com/arimos17"
+  # linkedin_url: ""
+  # behance_url: ""
+  # x_url: ""
+  timezone: "America/Santiago"
+
+about:
+  title: "Sobre mí"
+  summary: >
+    Profesional eficiente y multifuncional, con marcada orientación al trabajo en equipo,
+    alta adaptabilidad y excelente organización. Se destaca por una actitud proactiva y responsable,
+    con sólidas habilidades en gestión de software y hardware, enfocada en resolver problemas de forma
+    eficiente y con foco en resultados.
+  ctas:
+    - label: "Ver GitHub"
+      icon: "github"
+      url: "https://github.com/arimos17"
+    - label: "Descargar CV"
+      icon: "file"
+      url: "assets/CV-Christian-Ramos.pdf"
+
+skills:
+  title: "Habilidades"
+  highlight:
+    - "Desarrollo de aplicaciones web y móviles"
+    - "Diseño y gestión de bases de datos (MySQL, SQL Server, MongoDB, Oracle)"
+    - "Soporte computacional y mantenimiento de equipos"
+    - "Ciberseguridad básica y análisis de vulnerabilidades"
+    - "Procesamiento y análisis de datos (ETL, Power BI, SSIS, KNIME)"
+    - "Control de versiones con Git y GitHub"
+    - "Documentación técnica y levantamiento de requerimientos"
+    - "Desarrollo Full Stack"
+    - "Diseño ágil de sistemas"
+  tech_stack:
+    languages: ["Python", "JavaScript", "PHP", "C#", "Kotlin"]
+    frameworks: ["Django", "Flask", "React", "CodeIgniter"]
+    databases: ["MySQL", "SQL Server", "MongoDB", "Oracle"]
+    servers: ["Windows Server", "Apache", "Ubuntu"]
+    cloud: ["AWS", "Lambda"]
+    data_bi: ["ETL", "Power BI", "SSIS", "KNIME"]
+    tools: ["Git", "GitHub"]
+
+experience:
+  title: "Experiencia"
+  items:
+    - company: "GERS Servicios Médicos"
+      location: "Talca"
+      role: "Administrador de Redes Sociales y Creador de Diseños"
+      start: "2021-01"
+      end: "2022-12"
+      bullets:
+        - "Administración de redes sociales y creación de material gráfico para campañas y comunicación."
+    - company: "Oriencoop"
+      location: "Talca"
+      role: "Práctica Profesional — Soporte TI / Mesa de Ayuda"
+      start: "2024-06"
+      end: "2024-08"
+      bullets:
+        - "Gestión y resolución de incidentes técnicos de hardware y software."
+        - "Desarrollo de scripts en Python para automatizar/optimizar tareas del área y apoyar la operación."
+    - company: "Servicio de Salud Maule"
+      location: "Talca"
+      role: "Práctica Profesional — Depto. de Planificación y Control de Gestión"
+      start: "2025-04"
+      end: "2025-06"
+      bullets:
+        - "Apoyo en desarrollo de software para la gestión de planes, programas y proyectos (PHP, CodeIgniter, Oracle, SQL Developer, Instant Client)."
+        - "Desarrollo y optimización de scripts ETL usando SQL, Python y JavaScript, mejorando el procesamiento y análisis de datos."
+        - "Participación en levantamiento de requerimientos, mejoras continuas y propuestas de soluciones tecnológicas para optimizar procesos."
+
+education:
+  title: "Educación"
+  items:
+    - institution: "Colegio Ingles de Talca"
+      location: "Talca"
+      year: 2020
+      degree: "Licencia de Enseñanza Media"
+    - institution: "Universidad Tecnológica de Chile INACAP"
+      location: "Talca"
+      year: 2025
+      degree: "Técnico Nivel Superior Analista Programador"
+    - institution: "Universidad Tecnológica de Chile INACAP"
+      location: "Talca"
+      year: 2026
+      degree: "Ingeniería en Informática"
+
+courses:
+  title: "Cursos"
+  items:
+    - name: "Introducción a la Ciberseguridad"
+      issuer: "Cisco"
+
+languages:
+  title: "Idiomas"
+  items:
+    - name: "Español"
+      level: "Nativo"
+    - name: "Inglés"
+      level: "Intermedio"
+
+licenses:
+  title: "Permiso de conducir"
+  items:
+    - name: "Clase B"
+
+# --- Proyectos (GitHub) -------------------------------------------------------
+# Si quieres: puedes dejar que el sitio "importe" repos automáticamente desde GitHub,
+# y además fijar 3–6 proyectos destacados con descripciones más potentes.
+github_import:
+  enabled: true
+  username: "arimos17"
+  include_forks: false
+  include_archived: false
+  max_repos: 12
+  # Si tu portfolio filtra por topics, agrega aquí los tuyos:
+  prefer_topics_any: ["django", "flask", "react", "aws", "etl", "ssis", "powerbi", "python"]
+  # Orden sugerido:
+  sort: "pushed_at_desc"   # "pushed_at_desc" | "stars_desc" | "name_asc"
+
+projects:
+  title: "Proyectos"
+  featured_limit: 6
+  featured:
+    # ⚠️ Reemplaza los repo_url por tus URLs reales.
+    - name: "Dashboard de Datos / ETL"
+      type: "Data & BI"
+      repo_url: "https://github.com/arimos17/REPO_AQUI"
+      short: "Pipeline ETL + visualización para análisis y reporting."
+      stack: ["SQL", "Python", "SSIS", "Power BI"]
+      highlights:
+        - "ETL con validaciones y trazabilidad."
+        - "Modelo listo para consumo en reportes."
+      links:
+        demo: ""
+        docs: ""
+      badges: ["ETL", "BI", "SQL", "Python"]
+
+    - name: "Web App Full Stack"
+      type: "Web"
+      repo_url: "https://github.com/arimos17/REPO_AQUI"
+      short: "Aplicación web con backend robusto, autenticación y CRUD."
+      stack: ["Django", "React", "MySQL"]
+      highlights:
+        - "Arquitectura limpia y componentes reutilizables."
+        - "Buenas prácticas de seguridad y despliegue."
+      links:
+        demo: ""
+        docs: ""
+      badges: ["Full Stack", "Django", "React"]
+
+    - name: "Automatización (Scripts)"
+      type: "Automation"
+      repo_url: "https://github.com/arimos17/REPO_AQUI"
+      short: "Scripts para automatizar tareas operativas y soporte TI."
+      stack: ["Python"]
+      highlights:
+        - "Ahorro de tiempo en tareas repetitivas."
+        - "Logs y manejo de errores."
+      links:
+        demo: ""
+        docs: ""
+      badges: ["Automation", "Python"]
+
+  # Sección opcional para más proyectos (cards simples)
+  more:
+    - name: "Mini-proyecto 1"
+      repo_url: "https://github.com/arimos17/REPO_AQUI"
+      tags: ["SQL", "Python"]
+    - name: "Mini-proyecto 2"
+      repo_url: "https://github.com/arimos17/REPO_AQUI"
+      tags: ["React", "UI"]
+
+# --- SEO / Meta ---------------------------------------------------------------
+seo:
+  title: "Portafolio — Christian Ramos"
+  description: "Portafolio profesional con proyectos en GitHub: Full Stack, Data/ETL, Soporte TI y Cloud AWS."
+  keywords: ["portafolio", "full stack", "python", "django", "react", "etl", "ssis", "power bi", "aws", "talca", "chile"]
+  og_image: "assets/img/og-cover.png"
+
+footer:
+  show_last_updated: true
+  small_print: "Hecho con ❤️ y GitHub Pages."
