@@ -17,18 +17,18 @@ branding:
   theme:
     mode: "dark"              # "dark" | "light" | "auto"
     accent_style: "neon"      # "neon" | "classic"
-    colors:
-      background_from: "#050B18"
-      background_to:   "#0B2A6F"
-      surface:         "#0B1220"
-      surface_2:       "#0F1A2B"
-      text:            "#E6EDF3"
-      muted:           "#9AA4B2"
-      border:          "#223043"
+        colors:
+      background_from: "#0B1020"
+      background_to:   "#101A33"
+      surface:         "#0F172A"
+      surface_2:       "#111C36"
+      text:            "#E5E7EB"
+      muted:           "#9CA3AF"
+      border:          "#24324A"
 
-      primary:   "#0B5FFF"
-      secondary: "#00D4FF"
-      success:   "#22C55E"
+      primary:   "#2563EB"  # azul profesional
+      secondary: "#06B6D4"  # cian elegante
+      success:   "#16A34A"
       warning:   "#F59E0B"
       danger:    "#EF4444"
 
